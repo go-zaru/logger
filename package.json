@@ -15,7 +15,7 @@
     "cp:changelog": "cp CHANGELOG.md ./lib",
     "copy": "npm run cp:pkg && npm run cp:readme && npm run cp:changelog",
     "build": "tsc -p tsconfig.json && npm run cp:pkg",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test:tier1 && npm run test:tier2",
     "test:tier1": "lab -c -v --shuffle tests/tier1",
     "test:tier2": "lab -c -v --shuffle tests/tier2",
     "gz:publish": "npm run copy && npm publish ./lib --dry-run",
@@ -46,7 +46,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm build && npm lint && npm test"
+      "pre-push": "npm build && npm run lint && npm test"
     }
   }
 }
