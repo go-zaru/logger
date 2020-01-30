@@ -1,5 +1,5 @@
 {
-  "name": "@gozaru/logger",
+  "name": "@go-zaru/logger",
   "version": "0.1.0",
   "description": "Interface wrapper for application logs ",
   "private": true,
