@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "commonjs",
+    "declaration": true,
+    "lib": ["ES2017"],
+    "esModuleInterop": true,
+    "target": "ES2017",
+    "noImplicitAny": true,
+    "strict" : true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "sourceMap": false,
+    "outDir": "lib"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "tests", "node_modules"
+  ]
+}

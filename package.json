@@ -1,0 +1,48 @@
+{
+  "name": "@gozaru/logger",
+  "version": "0.1.0",
+  "description": "Interface wrapper for application logs ",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "version": "auto-changelog -p && git add CHANGELOG.md",
+    "prebuild": "npm run clean",
+    "clean": "rm -rf lib",
+    "lint": "eslint ./src/**/*.ts",
+    "lint:fix": "eslint ./src/**/*.ts --fix",
+    "cp:pkg": "cp package.json ./lib",
+    "cp:readme": "cp README.md ./lib",
+    "cp:changelog": "cp CHANGELOG.md ./lib",
+    "copy": "npm run cp:pkg && npm run cp:readme && npm run cp:changelog",
+    "build": "tsc -p tsconfig.json && npm run cp:pkg",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:tier1": "lab -c -v --shuffle tests/tier1",
+    "test:tier2": "lab -c -v --shuffle tests/tier2",
+    "gz:publish": "npm run copy && npm publish ./lib --dry-run",
+    "test:bundle": "npm pack ./lib --dry-run",
+    "dev": "node -r dotenv/config ./tests/dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@hapi/code": "^8.0.1",
+    "@hapi/lab": "^22.0.3",
+    "@types/bunyan": "^1.8.6",
+    "@types/node": "^13.1.8",
+    "@types/winston": "^2.4.4",
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
+    "auto-changelog": "^1.16.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "rimraf": "^3.0.0",
+    "sinon": "^8.1.1",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "logform": "^2.1.2",
+    "winston": "^3.2.1",
+    "winston-transport": "^4.3.0"
+  }
+}
