@@ -29,7 +29,13 @@ describe('Logger Service', () => {
       const sut = new Service({driver:mockDriver});
       sut.info({message:'hello world', correlationId:'1fs3-se4f-5ety-5y43'});
       expect(sut).be.instanceOf(Service);
-      expect(mockDriver.log.args[0]).to.be.equal({})
+      expect(mockDriver.log.args[0]).to.be.equal(      [
+        {
+          correlationId: '1fs3-se4f-5ety-5y43',
+          level: 'info',
+          message: 'hello world'
+        }
+      ])
     });
 
     after(()=>{
