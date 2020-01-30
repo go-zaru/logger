@@ -15,30 +15,30 @@ export class Service implements LoggerService {
   }
 
   fatal(entry: ErrorLogEntry): void {
-    this.log({level:'fatal', ...entry});
+    this.log({level:this.fatal.name, ...entry});
   }
 
   error(entry: ErrorLogEntry): void {
-    this.log({level:'error', ...entry});
+    this.log({level:this.error.name, ...entry});
   }
 
   warn(entry: LogEntry): void {
-    this.log({level:'warn', ...entry});
+    this.log({level:this.warn.name, ...entry});
   }
 
   info(entry: LogEntry): void {
-    this.log({level:'info', ...entry});
+    this.log({level:this.info.name, ...entry});
   }
 
   debug(entry: LogEntry): void {
-    this.log({level:'debug', ...entry});
+    this.log({level:this.debug.name, ...entry});
   }
 
   trace(entry: LogEntry): void {
-    this.log({level:'trace', ...entry});
+    this.log({level:this.trace.name, ...entry});
   }
 
   private log({level, message, correlationId, ...meta}: LogPayload): void {
-    this._driver.log({level, message, correlationId, ...meta});
+    this._driver.log({level, severity:level, message, correlationId, ...meta});
   }
 }

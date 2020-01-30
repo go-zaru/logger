@@ -36,7 +36,7 @@ describe('Logger Service', () => {
 
     sut.info({message:"hello", correlationId: "123234"});
     expect(spies.write.args[0][0]).to.be.equal(
-      '{"level":"info","message":"hello","correlationId":"123234"}'
+      '{"level":"info","severity":"info","message":"hello","correlationId":"123234"}'
     );
   });
 });
