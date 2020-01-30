@@ -1,6 +1,6 @@
 # go-zaru/logger
 
-> $ npm i go-zaru/logger
+> $ npm i @go-zaru/logger
 
 A simple wrapper interface over winston logger.
 
