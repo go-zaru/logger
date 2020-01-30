@@ -3,7 +3,7 @@ const { expect } = require('@hapi/code');
 const { stub, spy, useFakeTimers } = require('sinon');
 const { describe, it, after, afterEach, before, beforeEach } = exports.lab = Lab.script();
 
-const {Service} = require('../../lib/services/Service');
+const {Service} = require('../../lib/service/Service');
 
 describe('Logger Service', () => {
   describe('when initialized', ()=>{
